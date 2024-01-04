@@ -18,10 +18,11 @@ pictures="$HOME/Pictures"
 
 if [ -d "$pictures_cloud" ]; then
     # Cloud pictures directory exists
-    if [ -d "$pictures_cloud" ]; then
+
+    if [ ! -d "$pictures" ]; then
         # Local directory doesn't exists so creates a symplink to cloud dir
         ln -s "$pictures_cloud" "$HOME/"
-    elif [[ "$pictures" != "$(realpath --canonicalize-existing $pictures)" ]];then
+    elif [[ "$pictures" != "$(realpath --canonicalize-existing $pictures)" ]]; then
         # Pictures dir is a symplink, so assumes that it points to cloud dir
         echo "The Pictures dir ($pictures) is  is a symlinks."
     else
@@ -32,6 +33,7 @@ if [ -d "$pictures_cloud" ]; then
             ln -sf "$1" "$HOME/"
         fi
     fi
+    
 fi
 
 # symlink terminal to x-terminal-emulator. Required 
