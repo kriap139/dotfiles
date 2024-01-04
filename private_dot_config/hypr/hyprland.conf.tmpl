@@ -1,5 +1,5 @@
 {{- if eq .chezmoi.hostname "arch-desktop" -}}
-{{-   include "hyprland.conf_Desktop" -}}
-{{- else if eq .chezmoi.hostname "arch-laptop" -}}
-{{-   include "hyprland.conf_Laptop" -}}
+    {{- include "private_dot_config/hypr/hyprland.conf_Desktop" }}
+{{ else if eq .chezmoi.hostname "arch-laptop" }}
+    {{- include "private_dot_config/hypr/hyprland.conf_Laptop" }}
 {{- end -}}

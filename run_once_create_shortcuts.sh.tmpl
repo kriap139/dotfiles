@@ -33,3 +33,10 @@ if [ -d "$pictures_cloud" ]; then
         fi
     fi
 fi
+
+# symlink terminal to x-terminal-emulator. Required 
+# for onagre run functionality
+if [ -d "$TERMINAL" ]; then
+    echo "Need root priveleges to create terminal symlink $TERMINAL -> /usr/local/bin/x-terminal-emulator"
+    sudo ln -sf "$TERMINAL" "/usr/local/bin/x-terminal-emulator"
+fi

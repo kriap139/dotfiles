@@ -1,0 +1,4 @@
+
+# Files that are included depending on the machine
+private_dot_config/hypr/hyprland.conf_Laptop
+private_dot_config/hypr/hyprland.conf_Desktop

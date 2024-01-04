@@ -8,9 +8,12 @@
    email = "{{ keepassxcAttribute "Github" "email" }}"
 
 [data.cloud]
-   dir = {{- .chezmoi.homdeDir -}}/.Cloud/
+   dir = "{{- .chezmoi.homeDir -}}/.Cloud"
    prefix = "mega-personal"
    borg_backup_repo = "/mnt/Backup-Drive/BorgBackup/Cloud" 
+
+[scriptEnv]
+    TERMINAL = "/usr/bin/alacritty"
 
 
 

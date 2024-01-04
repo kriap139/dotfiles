@@ -8,7 +8,7 @@ file://{{- .chezmoi.homeDir -}}/.local/bin bin-home
 file://{{- .chezmoi.homeDir -}}/.Cloud/mega-personal mega-cloud
 file://{{- .chezmoi.homeDir -}}/.Cloud/mega-personal/School School
 {{ if eq .chezmoi.hostname "arch-desktop" -}}
-file://{{- .chezmoi.homeDir -}}/LNX-Data/dev dev
+file:///run/media/{{- .chezmoi.username -}}/LNX-Data/dev dev
 file:///home/vm_share vm_share
 {{ else if eq .chezmoi.hostname "arch-laptop" -}}
 file://{{- .chezmoi.homeDir -}}/dev
