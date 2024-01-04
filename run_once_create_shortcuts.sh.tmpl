@@ -24,7 +24,7 @@ if [ -d "$pictures_cloud" ]; then
         ln -s "$pictures_cloud" "$HOME/"
     elif [[ "$pictures" != "$(realpath --canonicalize-existing $pictures)" ]]; then
         # Pictures dir is a symplink, so assumes that it points to cloud dir
-        echo "The Pictures dir ($pictures) is already a symlinks."
+        echo "The Pictures dir ($pictures) is already a symlink ($(realpath --canonicalize-existing $pictures))"
     else
         rmdir "$pictures"
         if [ $? -eq 0 ]; then
@@ -38,7 +38,8 @@ fi
 
 # symlink terminal to x-terminal-emulator. Required 
 # for onagre run functionality
-if [ -d "$TERMINAL" ]; then
-    echo "Need root priveleges to create terminal symlink $TERMINAL -> /usr/local/bin/x-terminal-emulator"
-    sudo ln -sf "$TERMINAL" "/usr/local/bin/x-terminal-emulator"
+ONAGRE_TERM="/usr/bin/x-terminal-emulator"
+if [ -f "$TERMINAL" ] &&  [ ! -f "$TERMINAL" ]; then
+    echo "Need root priveleges to create terminal symlink $TERMINAL -> $ONAGRE_TERM"
+    sudo ln -sf "$TERMINAL" "$ONAGRE_TERM"
 fi
