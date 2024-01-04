@@ -24,7 +24,7 @@ if [ -d "$pictures_cloud" ]; then
         ln -s "$pictures_cloud" "$HOME/"
     elif [[ "$pictures" != "$(realpath --canonicalize-existing $pictures)" ]]; then
         # Pictures dir is a symplink, so assumes that it points to cloud dir
-        echo "The Pictures dir ($pictures) is  is a symlinks."
+        echo "The Pictures dir ($pictures) is already a symlinks."
     else
         rmdir "$pictures"
         if [ $? -eq 0 ]; then
@@ -33,7 +33,7 @@ if [ -d "$pictures_cloud" ]; then
             ln -sf "$1" "$HOME/"
         fi
     fi
-    
+
 fi
 
 # symlink terminal to x-terminal-emulator. Required 
