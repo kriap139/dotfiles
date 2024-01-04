@@ -1,0 +1,38 @@
+#!/bin/bash
+
+_BorgBackup-tmpl()
+{
+    local cur opts args prev
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    prev="${COMP_WORDS[COMP_CWORD-1]}"
+    args="REPO SRC"
+
+    opts="
+      --dry-run
+      --filter-test
+      --prompt-test
+      --user=
+      --name=
+      --patterns-from=
+      --keep-daily=
+      --keep-weekly=
+      --keep-monthly=
+      --passphrase=
+      --passcommand=
+    "
+    # Handle other options
+    if [[ ${cur} == -* ]] ; then
+        COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+        return 0
+    fi
+
+    if [[ ${cur} == '' ]]; then
+        COMPREPLY=( $(compgen -W "${args}"${cur}) )
+        return 0
+    fi
+
+
+}
+
+
+complete -F _BorgBackup-tmpl BorgBackup-tmpl

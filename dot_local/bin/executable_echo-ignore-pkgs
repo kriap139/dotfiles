@@ -1,0 +1,8 @@
+#!/bin/bash
+
+ipkgs="$(grep IgnorePkg /etc/pacman.conf | sed -e 's/IgnorePkg =//' -e 's/#.*//')"
+
+echo $ipkgs | sed 's:IgnorePkg = ::g'
+
+#grps="$(grep IgnoreGroup /etc/pacman.conf | sed -e 's/IgnoreGroup =//' -e 's/#.*//')"
+#[[ -n $grps ]] && pkgs="$pkgs $(pacman -Sgq $grps)"

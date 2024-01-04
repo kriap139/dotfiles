@@ -1,0 +1,10 @@
+[Nemo Action]
+
+Active=true
+Name=Duplicate here
+Comment=Copy and paste a file in the current directory
+Exec=<scripts/duplicate_here.sh %F>
+Icon-Name=duplicate-red-cross
+Selection=NotNone
+Extensions=nodirs;
+Quote=double

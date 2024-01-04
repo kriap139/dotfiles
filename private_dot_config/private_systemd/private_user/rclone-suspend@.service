@@ -1,0 +1,11 @@
+[Unit]
+Before=sleep.target
+StopWhenUnneeded=yes
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecCondition=/bin/bash -xc '/usr/bin/systemctl is-active --quiet rclone@%i.service && { [[ %i == "main" ]] && exit 255 || exit 1; } || exit 0'
+ExecStart=-/bin/date +'rclone-%i suspend %%H:%%M:%%S' ; /bin/systemctl stop %i ; /bin/date +'my2 %%H:%%M:%%S'
+ExecStop=-/bin/date +'rclone-%i resume %%H:%%M:%%S' ; /bin/systemctl start %i ; /bin/date +'my4 %%H:%%M:%%S'
+[Install]
+WantedBy=sleep.target

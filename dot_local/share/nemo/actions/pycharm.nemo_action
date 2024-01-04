@@ -1,0 +1,11 @@
+[Nemo Action]
+
+Active=true
+Name=Open with pycharm
+Comment=Opens current folder or file with pycharm
+Exec=pycharm %F
+Icon-Name=/home/kripi/.icons/pycharm/pycharm.svg
+Selection=NotNone
+Extensions=any;
+Quote=double
+Dependencies=pycharm;

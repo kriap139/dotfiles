@@ -1,0 +1,33 @@
+#!/bin/bash
+
+#This needs to run with elevated privileges
+if [ $EUID -eq 0 ]
+	then
+		echo "Do not run with root privleges!"
+		exit 1
+fi
+
+DIR="$(cd "$(dirname "$0")" && pwd)"
+
+backup_backupdrive()
+{
+    repo="{{- .cloud.borg_backup_repo -}}"  
+    echo -e "Creating mega-personal(cloud) BorgBackup to BackupDrive(repo=$repo)"
+
+    $DIR/BorgBackup-tmpl                         \
+        --keep-daily=3                           \
+        --keep-weekly=6                          \
+        --keep-monthly=3                         \
+        --name="{{- .cloud.prefix -}}"           \
+        --user="$USER"                           \
+        $repo                                    \
+        "{{- .cloud.dir -}}/{{- .cloud.prefix -}}"
+}
+
+
+
+if [ "$1" == "backup-drive" ]; then
+   backup_backupdrive
+else
+   echo "No valid borg repo specified"
+fi

@@ -1,0 +1,17 @@
+file://{{- .chezmoi.homeDir -}}/Documents Documents
+file://{{- .chezmoi.homeDir -}}/Music Music
+file://{{- .chezmoi.homeDir -}}/Pictures Pictures
+file://{{- .chezmoi.homeDir -}}/Videos Videos
+file://{{- .chezmoi.homeDir -}}/Downloads Downloads
+file://{{- .chezmoi.homeDir -}}/.config configs
+file://{{- .chezmoi.homeDir -}}/.local/bin bin-home
+file://{{- .chezmoi.homeDir -}}/.Cloud/mega-personal mega-cloud
+file://{{- .chezmoi.homeDir -}}/.Cloud/mega-personal/School School
+{{ if eq .chezmoi.hostname "arch-desktop" -}}
+file://{{- .chezmoi.homeDir -}}/LNX-Data/dev dev
+file:///home/vm_share vm_share
+{{ else if eq .chezmoi.hostname "arch-laptop" -}}
+file://{{- .chezmoi.homeDir -}}/dev
+{{- end -}}
+
+

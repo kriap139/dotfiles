@@ -1,0 +1,35 @@
+#!/bin/bash
+
+symlink_if_exist() {
+    if [ -d "$1" ]; then
+        ln -sf "$1" "$HOME/"
+    fi
+}
+
+symlink_if_exist "/run/media/$USER/Games/"
+symlink_if_exist "/run/media/$USER/LNX-Data/"
+symlink_if_exist "/run/media/$USER/Gamedrive/"
+symlink_if_exist "/run/media/$USER/win-shared/"
+symlink_if_exist "/mnt/EMU-SSD/"
+symlink_if_exist "/mnt/Backup-Drive/"
+
+pictures_cloud="{{- .cloud.dir -}}/{{- .cloud.prefix -}}/Pictures"
+pictures="$HOME/Pictures"
+
+if [ -d "$pictures_cloud" ]; then
+    # Cloud pictures directory exists
+    if [ -d "$pictures_cloud" ]; then
+        # Local directory doesn't exists so creates a symplink to cloud dir
+        ln -s "$pictures_cloud" "$HOME/"
+    elif [[ "$pictures" != "$(realpath --canonicalize-existing $pictures)" ]];then
+        # Pictures dir is a symplink, so assumes that it points to cloud dir
+        echo "The Pictures dir ($pictures) is  is a symlinks."
+    else
+        rmdir "$pictures"
+        if [ $? -eq 0 ]; then
+            # Removal of pictures dir where successfull, so it had to be empty
+            # Replace it with symplink to cloud dir
+            ln -sf "$1" "$HOME/"
+        fi
+    fi
+fi

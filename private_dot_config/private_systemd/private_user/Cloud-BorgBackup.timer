@@ -1,0 +1,13 @@
+[Unit]
+Description=Schedule Cloud BorgBackup 3 times every day
+RefuseManualStart=false
+RefuseManualStop=false
+
+[Timer]
+Persistent=true
+OnBootSec=120 
+OnCalendar=10,16,19:00
+Unit=Cloud-BorgBackup.service
+
+[Install]
+WantedBy=timers.target

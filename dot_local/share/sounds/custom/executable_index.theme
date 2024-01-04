@@ -1,0 +1,7 @@
+[Sound Theme]
+Name=custom sounds
+Comment="a custom sound theme"
+Directories=stereo
+
+[stereo]
+OutputProfile=stereo

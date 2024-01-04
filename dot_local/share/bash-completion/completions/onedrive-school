@@ -1,0 +1,1 @@
+complete -W "mount umount" onedrive-school

@@ -1,0 +1,140 @@
+#!/bin/bash
+
+#This needs to run with elevated privileges
+if [ $EUID -ne 0 ]
+	then
+		echo "Please run this as root!"
+		exit 1
+fi
+
+#colours
+bg_yellow='\033[0;33m'
+bg_magenta='\033[0;45m'
+bg_red='\033[0;31m'
+clear='\033[0m'
+# ---
+
+user="kripi"
+home=$( getent passwd "$user" | cut -d: -f6 )
+
+icons=()
+dests=()
+
+if [ -z "$home" ]; then
+    echo "User $user dosen't exist"
+    exit 1
+fi
+
+install_icon()
+{
+    src="$1"
+    dest="$2"
+
+    if [ ! -f $src ]; then
+        echo "Icons $src, doesn't exist"
+    fi
+
+    cp -f $src $dest
+
+    if [ ! -f $dest ]; then
+        fn=$(basename "$src")
+        dest="$dest$fn"
+    fi
+
+    if [ -f $dest ]; then
+        chown root:root $dest
+        chmod go=r,u=rw $dest
+    else
+        echo "failed to copy Icon $dest!"
+    fi
+
+    unset src
+    unset dest
+}
+
+install_icons()
+{
+    for i in "${!icons[@]}"; do 
+        install_icon "${icons[$i]}" "${dests[$i]}"
+    done
+
+    unset icons
+    unset dests
+}
+
+
+# kitty
+#icons=(
+#    $home/.local/share/icons/apps/256x256/gnome-terminal.png
+#    $home/.local/share/icons/apps/256x256/gnome-terminal.png
+#    $home/.local/share/icons/apps/128x128/org.gnome.Terminal.svg
+#    $home/.local/share/icons/apps/128x128/org.gnome.Terminal.svg
+#)
+
+#dests=(
+#    /usr/share/icons/hicolor/256x256/apps/kitty.png
+#    /usr/share/pixmaps/kitty.png
+#    /usr/share/doc/kitty/html/_static/kitty.svg
+#    /usr/share/icons/hicolor/scalable/apps/kitty.svg
+#)
+
+
+
+# Prospect Mail
+icons=(
+    $home/.local/share/icons/apps/16x16/prospect-mail.png
+    $home/.local/share/icons/apps/32x32/prospect-mail.png
+    $home/.local/share/icons/apps/48x48/prospect-mail.png
+    $home/.local/share/icons/apps/64x64/prospect-mail.png
+    $home/.local/share/icons/apps/128x128/prospect-mail.png
+    $home/.local/share/icons/apps/256x256/prospect-mail.png 
+)
+
+dests=(
+    /usr/share/icons/hicolor/16x16/apps/prospect-mail.png
+    /usr/share/icons/hicolor/32x32/apps/prospect-mail.png
+    /usr/share/icons/hicolor/48x48/apps/prospect-mail.png
+    /usr/share/icons/hicolor/64x64/apps/prospect-mail.png
+    /usr/share/icons/hicolor/128x128/apps/prospect-mail.png
+    /usr/share/icons/hicolor/256x256/apps/prospect-mail.png
+)
+
+install_icons
+
+
+
+# Standard Notes
+icons=(
+    $home/.local/share/icons/apps/256x256/standard-notes.png
+    $home/.local/share/icons/apps/512x512/standard-notes.png
+)
+
+dests=(
+    /usr/share/icons/hicolor/256x256/apps/standard-notes.png
+    /usr/share/icons/hicolor/512x512/apps/standard-notes.png
+)
+
+install_icons
+    
+
+icon_cache_paths=(
+    /usr/share/icons/hicolor
+)
+
+if command -v gtk-update-icon-cache &> /dev/null; then
+    echo -e "${bg_yellow}Updating icons chache with <gtk-update-icon-cache>${clear}"
+
+    for i in "${!icon_cache_paths[@]}"; do 
+        gtk-update-icon-cache -f "${icon_cache_paths[$i]}"
+    done
+fi
+
+if command -v gtk4-update-icon-cache &> /dev/null; then
+    echo -e "${bg_yellow}Updating icons chache with <gtk4-update-icon-cache>${clear}"
+
+    for i in "${!icon_cache_paths[@]}"; do 
+        gtk4-update-icon-cache -f "${icon_cache_paths[$i]}"
+    done
+fi
+
+unset icon_cache_paths

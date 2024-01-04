@@ -1,0 +1,7 @@
+[Unit]
+Description=Cloud BorgBackup Service
+
+[Service]
+Type=simple
+ExecStart={{- .chezmoi.homdeDir -}}/.local/bin/backup/Cloud-BorgBackup
+WorkingDirectory={{- .chezmoi.homdeDir -}}/.local/bin/backup

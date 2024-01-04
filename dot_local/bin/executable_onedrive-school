@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# This can't run with elevated privileges
+if [ $EUID -eq 0 ]
+	then
+		echo "Do not run as root!"
+		exit 1
+fi
+
+running="$(systemctl --user show -p SubState rclone@onedrive-school.service | sed 's/SubState=//g')"
+
+if [ "$1" == "mount" ] && [ $running == "dead" ]; then
+    systemctl --user start rclone@onedrive-school.service
+elif [ "$1" == "umount" ] && [ $running == "running" ]; then
+    systemctl --user stop rclone@onedrive-school.service
+else
+    echo "$1 action unable to be executed, service status is: $running"
+fi

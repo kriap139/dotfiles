@@ -1,0 +1,157 @@
+#!/bin/bash
+
+showErrorPrompt()
+{
+    if command -v zenity &> /dev/null;
+        then
+        title="$(realpath $0)"
+        zenity --error --title=$title --text="$1"
+    fi
+}
+
+trap 'echo $( date )  BorgBackup interrupted >&2; exit 2' INT TERM
+
+
+
+# Parse Options ------------------------------------------------------------
+die() { echo "$*" >&2; exit 2; }  # complain to STDERR and exit with error
+needs_arg() { if [ -z "$OPTARG" ]; then die "No arg for --$OPT option"; fi; }
+no_arg() { if [ -n "$OPTARG" ]; then die "No arg allowed for --$OPT option"; fi; }
+
+keep_d=3
+keep_w=3
+keep_m=3
+filter_test=false
+prompt_test=false
+
+while getopts :d-: OPT; do
+  # support long options: https://stackoverflow.com/a/28466267/519360
+  if [ "$OPT" = "-" ]; then   # long option: reformulate OPT and OPTARG
+    OPT="${OPTARG%%=*}"       # extract long option name
+    OPTARG="${OPTARG#$OPT}"   # extract long option argument (may be empty)
+    OPTARG="${OPTARG#=}"      # if long option argument, remove assigning `=`
+  fi
+  case "$OPT" in
+    d | dry-run   ) no_arg;    dry_run=true                      ;;
+    filter-test   ) no_arg;    filter_test=true                  ;;
+    prompt-test   ) no_arg;    prompt_test=true                  ;;
+    user          ) needs_arg; user="$OPTARG"                    ;;
+    name          ) needs_arg; backup_name="$OPTARG"             ;;
+    patterns-from ) needs_arg; patterns_from="$OPTARG"           ;;
+    keep-daily    ) needs_arg; keep_d="$OPTARG"                  ;;
+    keep-weekly   ) needs_arg; keep_w="$OPTARG"                  ;;
+    keep-monthly  ) needs_arg; keep_m="$OPTARG"                  ;;
+    passphrase    ) needs_arg; export BORG_PASSPHRASE="$OPTARG"  ;;
+    passcommand   ) needs_arg; export BORG_PASSCOMMAND="$OPTARG" ;;
+    ??*           ) die "Illegal option --$OPT"                  ;;  # bad long option
+    ?             ) exit 2                                       ;;  # bad short option (error reported via getopts)
+  esac
+done
+
+shift $((OPTIND-1)) # remove parsed options and args from $@ list
+
+
+
+# options and arguments validation
+if [ -z ${backup_name} ]; then
+   echo -e "--name option is required"
+   exit 1
+fi
+
+if [ "$#" -eq 0 ];  then
+    echo -e "Missing Required REPO argument"
+    exit 1
+elif [ "$#" -eq 1 ]; then
+    export BORG_REPO="$1"
+elif [ "$#" -eq 2 ]; then
+    export BORG_REPO="$1"
+    src="$2"
+else
+    echo -e "To many positional arguments: Required 1 (max 2) got $#"
+    exit 1
+fi
+
+if [ -z ${patterns_from} ] && [ -z ${src} ]; then
+   echo -e "--patterns-from option or src arguments is required"
+   exit 1
+fi
+
+if [ "$filter_test" = true ]; then
+   if [ -z ${user} ] || [ -z ${patterns_from} ]; then
+       echo -e "--user, --patterns-from options is required for filter-test"
+       exit 1
+   fi
+fi
+
+
+
+#colours
+bg_yellow='\033[0;33m'
+bg_magenta='\033[0;45m'
+clear='\033[0m'
+
+# Borg backup, filter test and error prompt test
+global_exit=0
+
+if [ "$filter_test" = true ]; then
+    echo -e "${bg_yellow}Running Borg filter test${clear}"
+    borg create                                                   \
+        --dry-run                                                 \
+        --filter -                                                \
+        --list                                                    \
+        --patterns-from $patterns_from                            \
+                                                                  \
+        ::"backup_name-{now}"                                     \
+        &> /home/$user/Desktop/borg-test.txt
+elif [ "$prompt_test" = true ]; then
+    echo -e "${bg_yellow}Running  error prompt test${clear}"
+    showErrorPrompt "Error prompt test, hello there."
+else
+    echo -e "\n${bg_yellow}Creating backup of $backup_name to borgrepo($BORG_REPO)${clear}"
+
+    borg create                                            \
+        --verbose                                          \
+        --filter AME                                       \
+        --list                                             \
+        --stats                                            \
+        --show-rc                                          \
+        --compression lz4                                  \
+        --exclude-caches                                   \
+        ${dry_run:+--dry-run}                              \
+        ${patterns_from:+--patterns-from "$patterns_from"} \
+                                                           \
+        ::"$backup_name-{now}"                             \
+        ${src:+"$src"}
+
+    backup_exit=$?
+
+    borg prune                          \
+        ${dry_run:+--dry-run}           \
+        --list                          \
+        --prefix "$backup_name-"        \
+        --show-rc                       \
+        --keep-daily    $keep_d         \
+        --keep-weekly   $keep_w         \
+        --keep-monthly  $keep_m
+    prune_exit=$?
+
+    # actually free repo disk space by compacting segments
+    borg compact
+    compact_exit=$?
+
+    # use highest exit code as global exit code
+    global_exit=$(( backup_exit > prune_exit ? backup_exit : prune_exit ))
+    global_exit=$(( compact_exit > global_exit ? compact_exit : global_exit ))
+
+    if [ ${global_exit} -eq 0 ]; then
+        echo -e "${bg_yellow}Backup, Prune, and Compact finished successfully for $backup_name backup (repo=$BORG_REPO)${clear}"
+    elif [ ${global_exit} -eq 1 ]; then
+        echo -e "${bg_yellow}Backup, Prune, and/or Compact finished with warnings for $backup_name backup (repo=$BORG_REPO)${clear}"
+        # showErrorPrompt "Creation of borgbackup (repo=$BORG_REPO) of $backup_name, finished with warnings"
+    else
+        echo -e "${bg_yellow}Backup, Prune, and/or Compact finished with errors for $backup_name backup (repo=$BORG_REPO)${clear}"
+        showErrorPrompt "Creation of borgbackup (repo=$BORG_REPO) of $backup_name, finished with Errors"
+    fi
+fi
+
+exit ${global_exit}
