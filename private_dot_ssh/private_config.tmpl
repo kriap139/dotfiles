@@ -3,7 +3,7 @@ Host github.com
     Hostname github.com
     PreferredAuthentications publickey
     IdentitiesOnly yes
-    IdentityFile {{- .chezmoi.homeDir -}}/.ssh/github.pub
+    IdentityFile {{.chezmoi.homeDir -}}/.ssh/github.pub
 
 Host {{- keepassxcAttribute "School_ML_Cluster" "host" }}
     HostName {{ keepassxcAttribute "School_ML_Cluster" "hostname" }}
