@@ -1,3 +1,6 @@
 # Files that are included depending on the machine
 .config/hypr/hyprland.conf_Laptop
 .config/hypr/hyprland.conf_Desktop
+
+# Setup script
+setup.sh
