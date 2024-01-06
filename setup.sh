@@ -18,7 +18,7 @@ if [ ! -d $data_dir ]; then
     cd $data_dir
     git remote set-url origin git@github.com:kriap139/dotfiles.git
 else
-    chezmoi init --apply
+    chezmoi init
+    rm -f $setup_gen
+    chezmoi apply
 fi
-
-rm -f $setup_gen

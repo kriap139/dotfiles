@@ -8,6 +8,7 @@ symlink_if_exist() {
 
 symlink_if_exist "/run/media/$USER/Games/"
 symlink_if_exist "/run/media/$USER/LNX-Data/"
+symlink_if_exist "/run/media/$USER/LNX-Data/dev"
 symlink_if_exist "/run/media/$USER/Gamedrive/"
 symlink_if_exist "/run/media/$USER/win-shared/"
 symlink_if_exist "/mnt/EMU-SSD/"
@@ -37,11 +38,8 @@ if [ -d "$pictures_cloud" ]; then
 fi
 
 # Make dev folder in home directory if on laptop
-# If con desktop create symlink to external drive
 {{ if eq .chezmoi.hostname "arch-laptop" -}}
     mkdir -p "$HOME/dev"
-{{ else if eq .chezmoi.hostname "arch-desktop" -}}
-    ln -s "/run/media/{{- .chezmoi.username -}}/LNX-Data/dev" "$HOME/dev"
 {{- end }}
 
 
