@@ -30,11 +30,20 @@ if [ -d "$pictures_cloud" ]; then
         if [ $? -eq 0 ]; then
             # Removal of pictures dir where successfull, so it had to be empty
             # Replace it with symplink to cloud dir
-            ln -sf "$1" "$HOME/"
+            ln -sf "$pictures_cloud" "$HOME/"
         fi
     fi
 
 fi
+
+# Make dev folder in home directory if on laptop
+# If con desktop create symlink to external drive
+{{ if eq .chezmoi.hostname "arch-laptop" -}}
+    mkdir -p "$HOME/dev"
+{{ else if eq .chezmoi.hostname "arch-desktop" -}}
+    ln -s "/run/media/{{- .chezmoi.username -}}/LNX-Data/dev" "$HOME/dev"
+{{- end }}
+
 
 # symlink terminal to x-terminal-emulator. Required 
 # for onagre run functionality

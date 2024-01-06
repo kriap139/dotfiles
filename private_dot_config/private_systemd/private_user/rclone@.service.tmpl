@@ -13,7 +13,7 @@ Description=rclone: Remote FUSE filesystem for cloud storage config %i
 Documentation=man:rclone(1)
 After=network-online.target
 Wants=network-online.target 
-AssertPathIsDirectory=%h/.Cloud/%i
+AssertPathIsDirectory={{- .cloud.dir -}}/%i
 
 [Service]
 Type=notify
@@ -26,8 +26,8 @@ ExecStart= \
     --log-file /tmp/rclone-%i.log \
     --umask 022 \
     --allow-other \
-    %i: %h/.Cloud/%i
-ExecStop=/bin/fusermount -u %h/.Cloud/%i
+    %i: {{- .cloud.dir -}}/%i
+ExecStop=/bin/fusermount -u {{- .cloud.dir -}}/%i
 
 [Install]
 WantedBy=default.target
