@@ -67,7 +67,8 @@ export PATH
 
 alias ls='ls --color=auto'
 alias cd-arch-build='cd /home/arch-dev/pkgbuilds-manual'
-
+#alias vscodium="vscodium --extensions-dir $XDG_DATA_HOME/VSCodium"
+#alias codium="codium --extensions-dir $XDG_DATA_HOME/VSCodium"
 
 # User specific aliases and functions
 if [ -d ~/.bashrc.d ]; then
