@@ -1,0 +1,102 @@
+packages:
+  base:
+  - 'base' 
+  - 'base-devel' 
+  - 'linux-zen' 
+  - 'linux-zen-headers' 
+  - 'linux-zen-docs' 
+  - 'linux-firmware' 
+  - 'archlinux-keyring' 
+  - 'wget' 
+  - 'sudo'
+     
+  - 'refind' 
+  - 'rebuild-detector'
+
+  - 'btrfs-progs'
+  - 'snapper'
+  - 'snap-pac'
+
+  - 'git'
+  - 'cmake'
+  - 'just'
+  - 'usbutils'
+  - 'pciutils'
+
+  - 'bash-completion'
+  - 'xdg-user-dirs'
+  - 'pipewire' 
+  - 'pipewire-alsa' 
+  - 'pipewire-audio'
+  - 'pipewire-pulse' 
+  - 'lib32-alsa-plugins'
+  - 'lib32-pipewire'
+  - 'wireplumber'
+  - 'eog'
+  - 'gvim'
+  - 'celluloid' 
+  - 'firefox' 
+  - 'alacritty'
+  - 'archlinux-wallpaper'
+  - 'file-roller'
+  - 'gamescope'
+  - 'gnome-characters'
+  - 'gnome-disk-utility'
+  - 'gnome-logs'
+  - 'gnome-system-monitor'
+  - 'steam'
+  - 'keepassxc'
+  - 'nemo'
+  - 'nemo-fileroller'
+  - 'nemo-image-converter'
+  - 'speedcrunch'
+  - 'libnotify'
+  - 'chezmoi'
+  
+  - 'gnome-keyring'
+  - 'seahorse'
+  gnome:
+  - 'gnome-control-center'
+  - 'gnome-screenshot'
+  - 'gnome-shell'
+  - 'gnome-tweaks'
+  - 'xdg-desktop-portal-gnome'
+  - 'tecla'
+  - 'gnome-shell-extensions'
+  - 'gnome-backgrounds'
+  - 'gdm'
+  - 'dconf-editor' 
+  - 'networkmanager'
+  hyprland:
+  - 'Hyprland'
+  - 'dunst'
+  - 'swaylock'
+  - 'xdg-desktop-portal-hyprland'
+  - 'onagre'
+  #- 'rofi'
+  #- 'noto-fonts' 
+  #- 'noto-fonts-cjk'
+  #- 'noto-fonts-emoji'
+  #- 'ttf-dejavu' 
+  arch-desktop:
+  - 'linux-lts'
+  - 'linux-lts-docs'
+  - 'linux-lts-headers'
+  - 'os-prober'
+  
+  - 'libvirt'
+  - 'qemu-desktop'
+  - 'virt-manager'
+  
+  - asp
+  - blender
+  - gcc
+  - gdb 
+  - zbus_xmlgen
+  - archiso
+
+  - 'snap-sync'
+  - 'calibre'
+  - 'obsidian'
+  - 'obsidian-icon-theme'
+  arch-laptop:
