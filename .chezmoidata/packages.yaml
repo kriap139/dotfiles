@@ -9,6 +9,7 @@ packages:
   - 'archlinux-keyring' 
   - 'wget' 
   - 'sudo'
+  - 'man-db'
      
   - 'refind' 
   - 'rebuild-detector'
