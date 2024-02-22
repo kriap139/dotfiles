@@ -18,6 +18,8 @@ packages:
   - 'gdm-settings'
   hyprland:
   - 'eww-wayland-custom'
+  - 'onagre-git'
+  - 'pop-launcher-git'
   #- 'ttf-phosphor-icons-fonts'
   #- 'ttf-symbola'
   #- 'ttf-twemoji'
