@@ -1,4 +1,10 @@
 [user]
    name = {{ .git.name }}
    email = {{ .git.email }}
+[diff]
+   tool = codium
+   [difftool]
+      prompt = false
+   [difftool "codium"]
+      cmd = codium "$LOCAL" "$REMOTE" "--diff" "--wait"
 
