@@ -1,17 +1,17 @@
 packages:
   base:
-  - 'base' 
-  - 'base-devel' 
-  - 'linux-zen' 
-  - 'linux-zen-headers' 
-  - 'linux-zen-docs' 
-  - 'linux-firmware' 
-  - 'archlinux-keyring' 
-  - 'wget' 
+  - 'base'
+  - 'base-devel'
+  - 'linux-zen'
+  - 'linux-zen-headers'
+  - 'linux-zen-docs'
+  - 'linux-firmware'
+  - 'archlinux-keyring'
+  - 'wget'
   - 'sudo'
   - 'man-db'
-     
-  - 'refind' 
+
+  - 'refind'
   - 'rebuild-detector'
 
   - 'btrfs-progs'
@@ -26,17 +26,17 @@ packages:
 
   - 'bash-completion'
   - 'xdg-user-dirs'
-  - 'pipewire' 
-  - 'pipewire-alsa' 
+  - 'pipewire'
+  - 'pipewire-alsa'
   - 'pipewire-audio'
-  - 'pipewire-pulse' 
+  - 'pipewire-pulse'
   - 'lib32-alsa-plugins'
   - 'lib32-pipewire'
   - 'wireplumber'
   - 'eog'
   - 'gvim'
-  - 'celluloid' 
-  - 'firefox' 
+  - 'celluloid'
+  - 'firefox'
   - 'alacritty'
   - 'archlinux-wallpaper'
   - 'file-roller'
@@ -53,9 +53,12 @@ packages:
   - 'speedcrunch'
   - 'libnotify'
   - 'chezmoi'
-  
+
   - 'gnome-keyring'
   - 'seahorse'
+  - 'noto-fonts'
+  - 'noto-fonts-cjk'
+  - 'noto-fonts-emojji'
   gnome:
   - 'gnome-control-center'
   - 'gnome-screenshot'
@@ -66,7 +69,7 @@ packages:
   - 'gnome-shell-extensions'
   - 'gnome-backgrounds'
   - 'gdm'
-  - 'dconf-editor' 
+  - 'dconf-editor'
   - 'networkmanager'
   hyprland:
   - 'Hyprland'
@@ -75,24 +78,21 @@ packages:
   - 'xdg-desktop-portal-hyprland'
   - 'onagre'
   #- 'rofi'
-  #- 'noto-fonts' 
-  - 'noto-fonts-cjk'
-  - 'noto-fonts-emoji'
-  #- 'ttf-dejavu' 
+  #- 'ttf-dejavu'
   arch-desktop:
   - 'linux-lts'
   - 'linux-lts-docs'
   - 'linux-lts-headers'
   - 'os-prober'
-  
+
   - 'libvirt'
   - 'qemu-desktop'
   - 'virt-manager'
-  
+
   - asp
   - blender
   - gcc
-  - gdb 
+  - gdb
   - zbus_xmlgen
   - archiso
 
