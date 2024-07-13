@@ -58,49 +58,72 @@ packages:
   - 'seahorse'
   - 'noto-fonts'
   - 'noto-fonts-cjk'
-  - 'noto-fonts-emojji'
-  gnome:
-  - 'gnome-control-center'
-  - 'gnome-screenshot'
-  - 'gnome-shell'
-  - 'gnome-tweaks'
-  - 'xdg-desktop-portal-gnome'
-  - 'tecla'
-  - 'gnome-shell-extensions'
-  - 'gnome-backgrounds'
-  - 'gdm'
-  - 'dconf-editor'
-  - 'networkmanager'
-  hyprland:
-  - 'Hyprland'
-  - 'dunst'
-  - 'swaylock'
-  - 'xdg-desktop-portal-hyprland'
-  - 'onagre'
-  #- 'rofi'
-  #- 'ttf-dejavu'
+  - 'webkit2gtk' # Needed for School VPN (Cisco anyconnect)!
+  desktop_environments:
+    gnome:
+    - 'gnome-control-center'
+    - 'gnome-screenshot'
+    - 'gnome-shell'
+    - 'gnome-tweaks'
+    - 'xdg-desktop-portal-gnome'
+    - 'tecla'
+    - 'gnome-shell-extensions'
+    - 'gnome-backgrounds'
+    - 'gdm'
+    - 'dconf-editor'
+    - 'networkmanager'
+    hyprland:
+    - 'Hyprland'
+    - 'dunst'
+    - 'swaylock'
+    - 'xdg-desktop-portal-hyprland'
+    - 'onagre'
+    #- 'rofi'
+    #- 'ttf-dejavu'
   arch-desktop:
   - 'linux-lts'
   - 'linux-lts-docs'
   - 'linux-lts-headers'
   - 'os-prober'
-
   - 'libvirt'
   - 'qemu-desktop'
   - 'virt-manager'
-
   - asp
   - blender
   - gcc
   - gdb
   - zbus_xmlgen
   - archiso
-
   - 'snap-sync'
   - 'calibre'
   - 'obsidian'
   - 'obsidian-icon-theme'
-  arch-laptop:
 
-  school:
-  - 'webkit2gtk'
+
+
+aur_packages:
+  base:
+  - 'brave-bin'
+  - 'mint-themes'
+  - 'mint-y-icons'
+  - 'mullvad-vpn-bin'
+  - 'ludusavi'
+  - 'vscodium-bin'
+  - 'prospect-mail-bin'
+  - 'standardnotes-desktop'
+  - 'xone-dkms'
+  - 'xone-dongle-firmware'
+  desktop_environments:
+    gnome:
+    - 'gnome-shell-extension-pop-shell-git'
+    - 'extension-manager'
+    - 'gdm-settings'
+    hyprland:
+    - 'eww-git'
+    - 'onagre-git'
+    - 'pop-launcher-git'
+    #- 'noto-fonts-emojji'
+    #- 'ttf-phosphor-icons-fonts'
+    #- 'ttf-symbola'
+    #- 'ttf-twemoji'
+    #- 'otf-openmoji' 

@@ -1,0 +1,87 @@
+{{ if and (eq .chezmoi.osRelease.id "arch") (eq .chezmoi.os "linux") -}}
+#!/bin/bash
+
+function exit_on_cmd_fail() {
+    if [ $? -ne 0 ]; then
+        echo "$1"
+        exit 1
+    fi
+}
+
+{{ $de := env "DESKTOP_SESSION"  -}}
+
+packages=(
+{{- range .packages.base }}
+    {{ . -}}
+{{ end }}
+)
+
+{{ if hasKey .packages .chezmoi.hostname -}}
+    {{ $pkgs := get .packages .chezmoi.hostname -}}
+    {{- range $pkgs }}
+        packages+=({{ . | quote }})
+    {{ end -}}
+{{ end }}
+
+{{ if hasKey .packages.desktop_environments $de -}}
+    {{ $pkgs := get .packages.desktop_environments $de -}}
+    {{- range $pkgs -}}
+        packages+=({{ . | quote }})
+    {{ end -}}
+{{ end }}
+
+
+aur_packages=(
+{{- range .aur_packages.base }}
+    {{ . -}}
+{{ end }}
+)
+
+{{ if hasKey .aur_packages .chezmoi.hostname -}}
+    {{ $pkgs := get .aur_packages .chezmoi.hostname -}}
+    {{- range $pkgs -}}
+        aur_packages+=({{ . | quote }})
+    {{ end -}}
+{{ end }}
+
+{{- if hasKey .aur_packages.desktop_environments $de -}}
+    {{- $pkgs := get .aur_packages.desktop_environments $de -}}
+    {{- range $pkgs -}}
+        aur_packages+=({{ . | quote }})
+    {{ end -}}
+{{ end }}
+
+
+if [ ${#packages[@]} -ne 0 ]; then
+    echo "Installing pacman pkgs!"
+    sudo pacman -S --needed "${packages[@]}"
+fi
+
+if [ ${#aur_packages[@]} -ne 0 ]; then
+
+    if ! command -v -- "/usr/bin/paru" > /dev/null 2>&1; then
+        echo "Paru not installed, installing!"
+
+        sudo pacman -S --needed base-devel
+        exit_on_cmd_fail "Failed to install base-devel, exiting!"
+        git clone https://aur.archlinux.org/paru.git
+        exit_on_cmd_fail "Failed to download paru sources, exiting!"
+        
+        pwd="$PWD"
+        cd paru
+        makepkg -si
+        exit_on_cmd_fail "Failed install paru, exiting!"
+
+        exit_on_cmd_fail "Paru installed succsessfully."
+        cd $pwd
+        rm -r paru
+    fi
+
+    echo "Installing aur pkgs (${#aur_packages[@]})!"
+    for pkg in $aur_packages; do
+        paru -S --needed $pkg
+    done
+fi
+
+{{ end }}
+{{/* Test template: 'cat run_onchange_arch-install-packages.sh.tmpl | chezmoi execute-template' */}}
