@@ -88,12 +88,12 @@ packages:
   - 'libvirt'
   - 'qemu-desktop'
   - 'virt-manager'
-  - asp
-  - blender
-  - gcc
-  - gdb
-  - zbus_xmlgen
-  - archiso
+  - 'asp'
+  - 'blender'
+  - 'gcc'
+  - 'gdb'
+  - 'zbus_xmlgen'
+  - 'archiso'
   - 'snap-sync'
   - 'calibre'
   - 'obsidian'
@@ -109,8 +109,6 @@ aur_packages:
   - 'mullvad-vpn-bin'
   - 'ludusavi'
   - 'vscodium-bin'
-  - 'prospect-mail-bin'
-  - 'standardnotes-desktop'
   - 'xone-dkms'
   - 'xone-dongle-firmware'
   desktop_environments:
@@ -126,4 +124,4 @@ aur_packages:
     #- 'ttf-phosphor-icons-fonts'
     #- 'ttf-symbola'
     #- 'ttf-twemoji'
-    #- 'otf-openmoji' 
+    #- 'otf-openmoji'
