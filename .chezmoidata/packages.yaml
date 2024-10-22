@@ -10,6 +10,16 @@ packages:
   - 'wget'
   - 'sudo'
   - 'man-db'
+  - 'flatpak'
+
+  - 'asp'
+  - 'gcc'
+  - 'gdb'
+  - 'just'
+  - 'zbus_xmlgen'
+
+  - 'obsidian'
+  - 'obsidian-icon-theme'
 
   - 'refind'
   - 'rebuild-detector'
@@ -81,24 +91,17 @@ packages:
     #- 'rofi'
     #- 'ttf-dejavu'
   arch-desktop:
-  - 'linux-lts'
-  - 'linux-lts-docs'
-  - 'linux-lts-headers'
+  - 'linux'
+  - 'linux-docs'
+  - 'linux-headers'
   - 'os-prober'
   - 'libvirt'
   - 'qemu-desktop'
   - 'virt-manager'
-  - 'asp'
-  - 'blender'
-  - 'gcc'
-  - 'gdb'
-  - 'zbus_xmlgen'
-  - 'archiso'
-  - 'snap-sync'
   - 'calibre'
-  - 'obsidian'
-  - 'obsidian-icon-theme'
 
+  - 'blender'
+  - 'archiso'
 
 
 aur_packages:
@@ -106,7 +109,6 @@ aur_packages:
   - 'brave-bin'
   - 'mint-themes'
   - 'mint-y-icons'
-  - 'mullvad-vpn-bin'
   - 'ludusavi'
   - 'vscodium-bin'
   - 'xone-dkms'
@@ -125,3 +127,12 @@ aur_packages:
     #- 'ttf-symbola'
     #- 'ttf-twemoji'
     #- 'otf-openmoji'
+  
+  flatpaks:
+    base:
+    - 'com.discordapp.Discord'
+    - 'com.github.tchx84.Flatseal'
+    - 'com.obsproject.Studio'
+    - 'net.mkiol.SpeechNote'
+
+    
