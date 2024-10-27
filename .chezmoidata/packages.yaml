@@ -12,6 +12,10 @@ packages:
   - 'man-db'
   - 'flatpak'
 
+  - 'desmume'
+  - 'dolphin-emu-tool'
+  - 'ppsspp'
+
   - 'asp'
   - 'gcc'
   - 'gdb'
@@ -113,6 +117,8 @@ aur_packages:
   - 'vscodium-bin'
   - 'xone-dkms'
   - 'xone-dongle-firmware'
+
+  - 'pcsx2-git'
   desktop_environments:
     gnome:
     - 'gnome-shell-extension-pop-shell-git'
@@ -127,12 +133,10 @@ aur_packages:
     #- 'ttf-symbola'
     #- 'ttf-twemoji'
     #- 'otf-openmoji'
-  
+
   flatpaks:
     base:
     - 'com.discordapp.Discord'
     - 'com.github.tchx84.Flatseal'
     - 'com.obsproject.Studio'
     - 'net.mkiol.SpeechNote'
-
-    
