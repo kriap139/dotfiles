@@ -61,12 +61,10 @@ packages:
   - 'gnome-system-monitor'
   - 'steam'
   - 'keepassxc'
-  - 'nemo'
-  - 'nemo-fileroller'
-  - 'nemo-image-converter'
   - 'speedcrunch'
   - 'libnotify'
   - 'chezmoi'
+  - 'nautilus'
 
   - 'gnome-keyring'
   - 'seahorse'
@@ -111,8 +109,6 @@ packages:
 aur_packages:
   base:
   - 'brave-bin'
-  - 'mint-themes'
-  - 'mint-y-icons'
   - 'ludusavi'
   - 'vscodium-bin'
   - 'xone-dkms'
