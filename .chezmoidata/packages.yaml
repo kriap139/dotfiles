@@ -111,9 +111,7 @@ aur_packages:
   - 'brave-bin'
   - 'ludusavi'
   - 'vscodium-bin'
-  - 'xone-dkms'
-  - 'xone-dongle-firmware'
-
+  - 'xone-dlundqvist-dkms-git'
   - 'pcsx2-git'
   desktop_environments:
     gnome:
