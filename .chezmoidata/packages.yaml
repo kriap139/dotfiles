@@ -11,22 +11,25 @@ packages:
   - 'sudo'
   - 'man-db'
   - 'flatpak'
-
+  - 'os-prober'
+  - 'refind'
+  - 'rebuild-detector'
+  
   - 'desmume'
   - 'dolphin-emu-tool'
   - 'ppsspp'
-
+  
   - 'asp'
   - 'gcc'
   - 'gdb'
   - 'just'
   - 'zbus_xmlgen'
-
+  - 'archiso'
+  
   - 'obsidian'
   - 'obsidian-icon-theme'
+  - 'blender'
 
-  - 'refind'
-  - 'rebuild-detector'
 
   - 'btrfs-progs'
   - 'snapper'
@@ -92,42 +95,41 @@ packages:
     - 'onagre'
     #- 'rofi'
     #- 'ttf-dejavu'
-  arch-desktop:
-  - 'linux'
-  - 'linux-docs'
-  - 'linux-headers'
-  - 'os-prober'
-  - 'libvirt'
-  - 'qemu-desktop'
-  - 'virt-manager'
-  - 'calibre'
-
-  - 'blender'
-  - 'archiso'
+    arch-desktop:
+    - 'linux'
+    - 'linux-docs'
+    - 'linux-headers'
+    - 'libvirt'
+    - 'qemu-desktop'
+    - 'virt-manager'
+    - 'calibre'
 
 
-aur_packages:
-  base:
-  - 'brave-bin'
-  - 'ludusavi'
-  - 'vscodium-bin'
-  - 'xone-dlundqvist-dkms-git'
-  - 'pcsx2-git'
-  desktop_environments:
-    gnome:
-    - 'gnome-shell-extension-pop-shell-git'
-    - 'extension-manager'
-    - 'gdm-settings'
-    hyprland:
-    - 'eww-git'
-    - 'onagre-git'
-    - 'pop-launcher-git'
-    #- 'noto-fonts-emojji'
-    #- 'ttf-phosphor-icons-fonts'
-    #- 'ttf-symbola'
-    #- 'ttf-twemoji'
-    #- 'otf-openmoji'
 
+  aur_packages:
+    base:
+    - 'brave-bin'
+    - 'ludusavi'
+    - 'vscodium-bin'
+    - 'xone-dlundqvist-dkms-git'
+    - 'pcsx2-git'
+    desktop_environments:
+      gnome:
+      - 'gnome-shell-extension-pop-shell-git'
+      - 'extension-manager'
+      - 'gdm-settings'
+      hyprland:
+      - 'eww-git'
+      - 'onagre-git'
+      - 'pop-launcher-git'
+      #- 'noto-fonts-emojji'
+      #- 'ttf-phosphor-icons-fonts'
+      #- 'ttf-symbola'
+      #- 'ttf-twemoji'
+      #- 'otf-openmoji'
+
+
+      
   flatpaks:
     base:
     - 'com.discordapp.Discord'
