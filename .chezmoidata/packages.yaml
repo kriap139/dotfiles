@@ -14,33 +14,6 @@ packages:
   - 'os-prober'
   - 'refind'
   - 'rebuild-detector'
-
-  - 'desmume'
-  - 'dolphin-emu-tool'
-  - 'ppsspp'
-
-  - 'asp'
-  - 'gcc'
-  - 'gdb'
-  - 'just'
-  - 'zbus_xmlgen'
-  - 'archiso'
-
-  - 'obsidian'
-  - 'obsidian-icon-theme'
-  - 'blender'
-
-
-  - 'btrfs-progs'
-  - 'snapper'
-  - 'snap-pac'
-
-  - 'git'
-  - 'cmake'
-  - 'just'
-  - 'usbutils'
-  - 'pciutils'
-
   - 'bash-completion'
   - 'xdg-user-dirs'
   - 'pipewire'
@@ -50,11 +23,53 @@ packages:
   - 'lib32-alsa-plugins'
   - 'lib32-pipewire'
   - 'wireplumber'
+  - 'noto-fonts'
+  - 'noto-fonts-cjk'
+  
+  # btrfs stuff
+  - 'btrfs-progs'
+  - 'snapper'
+  - 'snap-pac'
+
+  # dev
+  - 'asp'
+  - 'gcc'
+  - 'gdb'
+  - 'just'
+  - 'zbus_xmlgen'
+  - 'archiso'
+  - 'git'
+  - 'cmake'
+  - 'just'
+  - 'usbutils'
+  - 'pciutils'
+  
+  # emus
+  - 'desmume'
+  - 'dolphin-emu-tool'
+  - 'ppsspp'
+
+  # latex (texlive)
+  - 'texlive-basic'
+  - 'texlive-bin'
+  - 'texlive-binextra'
+  - 'texlive-fontsextra'
+  - 'texlive-fontsrecommended'
+  - 'texlive-latex'
+  - 'texlive-latexextra'
+  - 'texlive-latexrecommended'
+  - 'texlive-mathscience'
+  - 'texlive-pictures'
+
+  - 'obsidian'
+  - 'obsidian-icon-theme'
+  - 'blender'
+  - 'alacritty'
   - 'eog'
+  - 'libnotify'
   - 'gvim'
   - 'celluloid'
   - 'firefox'
-  - 'alacritty'
   - 'archlinux-wallpaper'
   - 'file-roller'
   - 'gamescope'
@@ -65,15 +80,11 @@ packages:
   - 'steam'
   - 'keepassxc'
   - 'speedcrunch'
-  - 'libnotify'
   - 'chezmoi'
   - 'nautilus'
   - 'mission-center'
-
   - 'gnome-keyring'
   - 'seahorse'
-  - 'noto-fonts'
-  - 'noto-fonts-cjk'
   - 'webkit2gtk' # Needed for School VPN (Cisco anyconnect)!
   desktop_environments:
     gnome:
