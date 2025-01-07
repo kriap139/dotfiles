@@ -14,18 +14,18 @@ packages:
   - 'os-prober'
   - 'refind'
   - 'rebuild-detector'
-  
+
   - 'desmume'
   - 'dolphin-emu-tool'
   - 'ppsspp'
-  
+
   - 'asp'
   - 'gcc'
   - 'gdb'
   - 'just'
   - 'zbus_xmlgen'
   - 'archiso'
-  
+
   - 'obsidian'
   - 'obsidian-icon-theme'
   - 'blender'
@@ -68,6 +68,7 @@ packages:
   - 'libnotify'
   - 'chezmoi'
   - 'nautilus'
+  - 'mission-center'
 
   - 'gnome-keyring'
   - 'seahorse'
@@ -129,7 +130,7 @@ packages:
       #- 'otf-openmoji'
 
 
-      
+
   flatpaks:
     base:
     - 'com.discordapp.Discord'
