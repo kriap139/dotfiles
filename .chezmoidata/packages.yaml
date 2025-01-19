@@ -60,7 +60,6 @@ packages:
   - 'texlive-latexrecommended'
   - 'texlive-mathscience'
   - 'texlive-pictures'
-  - 'texlive-langenglish'
   - 'texlive-langeuropean'
 
   - 'obsidian'
