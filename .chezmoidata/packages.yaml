@@ -25,7 +25,7 @@ packages:
   - 'wireplumber'
   - 'noto-fonts'
   - 'noto-fonts-cjk'
-  
+
   # btrfs stuff
   - 'btrfs-progs'
   - 'snapper'
@@ -43,7 +43,7 @@ packages:
   - 'just'
   - 'usbutils'
   - 'pciutils'
-  
+
   # emus
   - 'desmume'
   - 'dolphin-emu-tool'
@@ -60,6 +60,8 @@ packages:
   - 'texlive-latexrecommended'
   - 'texlive-mathscience'
   - 'texlive-pictures'
+  - 'texlive-langenglish'
+  - 'texlive-langeuropean'
 
   - 'obsidian'
   - 'obsidian-icon-theme'
