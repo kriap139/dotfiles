@@ -25,7 +25,7 @@ packages:
   - 'wireplumber'
   - 'noto-fonts'
   - 'noto-fonts-cjk'
-  
+
   # btrfs stuff
   - 'btrfs-progs'
   - 'snapper'
@@ -43,7 +43,7 @@ packages:
   - 'just'
   - 'usbutils'
   - 'pciutils'
-  
+
   # emus
   - 'desmume'
   - 'dolphin-emu-tool'
@@ -123,6 +123,7 @@ packages:
     - 'brave-bin'
     - 'ludusavi'
     - 'vscodium-bin'
+    - 'vscodium-bin-marketplace'
     - 'xone-dlundqvist-dkms-git'
     - 'pcsx2-git'
     desktop_environments:
