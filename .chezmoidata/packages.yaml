@@ -108,6 +108,11 @@ packages:
     - 'onagre'
     #- 'rofi'
     #- 'ttf-dejavu'
+    cosmic:
+      - 'cosmic-files'
+      - 'cosmic-session'
+      - 'cosmic-terminal'
+  machines:
     arch-desktop:
     - 'linux'
     - 'linux-docs'
@@ -140,12 +145,3 @@ packages:
       #- 'ttf-symbola'
       #- 'ttf-twemoji'
       #- 'otf-openmoji'
-
-
-
-  flatpaks:
-    base:
-    - 'com.discordapp.Discord'
-    - 'com.github.tchx84.Flatseal'
-    - 'com.obsproject.Studio'
-    - 'net.mkiol.SpeechNote'
