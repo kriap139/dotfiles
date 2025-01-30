@@ -129,6 +129,7 @@ packages:
     - 'brave-bin'
     - 'ludusavi'
     - 'vscodium-bin'
+    - 'vscodium-bin-marketplace'
     - 'xone-dlundqvist-dkms-git'
     - 'pcsx2-git'
     desktop_environments:
