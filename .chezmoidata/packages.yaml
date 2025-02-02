@@ -62,6 +62,7 @@ packages:
   - 'texlive-pictures'
   - 'texlive-langeuropean'
 
+  - 'discord'
   - 'obsidian'
   - 'obsidian-icon-theme'
   - 'blender'
@@ -112,6 +113,7 @@ packages:
       - 'cosmic-files'
       - 'cosmic-session'
       - 'cosmic-terminal'
+      - 'system76-power-git'
   machines:
     arch-desktop:
     - 'linux'
@@ -146,3 +148,6 @@ packages:
       #- 'ttf-symbola'
       #- 'ttf-twemoji'
       #- 'otf-openmoji'
+      cosmic:
+      - 'pop-launcher-git'
+      - 'onagre-git'
