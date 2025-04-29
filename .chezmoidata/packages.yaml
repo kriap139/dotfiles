@@ -67,7 +67,6 @@ packages:
   - 'obsidian-icon-theme'
   - 'blender'
   - 'alacritty'
-  - 'eog'
   - 'libnotify'
   - 'gvim'
   - 'celluloid'
@@ -75,7 +74,6 @@ packages:
   - 'archlinux-wallpaper'
   - 'file-roller'
   - 'gamescope'
-  - 'gnome-characters'
   - 'gnome-disk-utility'
   - 'gnome-logs'
   - 'gnome-system-monitor'
@@ -83,11 +81,11 @@ packages:
   - 'keepassxc'
   - 'speedcrunch'
   - 'chezmoi'
-  - 'nautilus'
-  - 'mission-center'
   - 'gnome-keyring'
   - 'seahorse'
+
   - 'webkit2gtk' # Needed for School VPN (Cisco anyconnect)!
+
   desktop_environments:
     gnome:
     - 'gnome-control-center'
@@ -101,24 +99,13 @@ packages:
     - 'gdm'
     - 'dconf-editor'
     - 'networkmanager'
-    hyprland:
-    - 'Hyprland'
-    - 'dunst'
-    - 'swaylock'
-    - 'xdg-desktop-portal-hyprland'
-    - 'onagre'
-    #- 'rofi'
-    #- 'ttf-dejavu'
     cosmic:
       - 'cosmic-files'
       - 'cosmic-session'
       - 'cosmic-terminal'
-      - 'system76-power-git'
+      - 'upower'
   machines:
     arch-desktop:
-    - 'linux'
-    - 'linux-docs'
-    - 'linux-headers'
     - 'libvirt'
     - 'qemu-desktop'
     - 'virt-manager'
@@ -139,15 +126,5 @@ packages:
       - 'gnome-shell-extension-pop-shell-git'
       - 'extension-manager'
       - 'gdm-settings'
-      hyprland:
-      - 'eww-git'
-      - 'onagre-git'
-      - 'pop-launcher-git'
-      #- 'noto-fonts-emojji'
-      #- 'ttf-phosphor-icons-fonts'
-      #- 'ttf-symbola'
-      #- 'ttf-twemoji'
-      #- 'otf-openmoji'
       cosmic:
-      - 'pop-launcher-git'
-      - 'onagre-git'
+      - 'system76-power-git'
