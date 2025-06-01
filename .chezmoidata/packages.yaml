@@ -45,6 +45,7 @@ packages:
   - bash-language-server
   - texlab
   - ruff
+  - taplo-cli
   
   # btrfs stuff
   - 'btrfs-progs'
