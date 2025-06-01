@@ -10,12 +10,12 @@ packages:
   - 'wget'
   - 'sudo'
   - 'man-db'
-  - 'flatpak'
-  - 'os-prober'
-  - 'refind'
   - 'rebuild-detector'
   - 'bash-completion'
   - 'xdg-user-dirs'
+  - 'networkmanager'
+
+  # Pipewire
   - 'pipewire'
   - 'pipewire-alsa'
   - 'pipewire-audio'
@@ -23,16 +23,35 @@ packages:
   - 'lib32-alsa-plugins'
   - 'lib32-pipewire'
   - 'wireplumber'
+
+  # Fonts
   - 'noto-fonts'
   - 'noto-fonts-cjk'
 
+  # Virtualization
+  - 'qemu-desktop'
+
+  # emus
+  - 'desmume'
+  - 'dolphin-emu-tool'
+  - 'ppsspp'
+
+  # Helix editor
+  - helix
+  - vscode-json-languageserver
+  - yaml-language-server
+  - lldb
+  - clang
+  - bash-language-server
+  - texlab
+  - ruff
+  
   # btrfs stuff
   - 'btrfs-progs'
   - 'snapper'
   - 'snap-pac'
 
   # dev
-  - 'asp'
   - 'gcc'
   - 'gdb'
   - 'just'
@@ -43,11 +62,6 @@ packages:
   - 'just'
   - 'usbutils'
   - 'pciutils'
-
-  # emus
-  - 'desmume'
-  - 'dolphin-emu-tool'
-  - 'ppsspp'
 
   # latex (texlive)
   - 'texlive-basic'
@@ -62,18 +76,16 @@ packages:
   - 'texlive-pictures'
   - 'texlive-langeuropean'
 
+  # APPS
   - 'discord'
   - 'obsidian'
   - 'obsidian-icon-theme'
   - 'blender'
-  - 'alacritty'
   - 'libnotify'
-  - 'gvim'
   - 'celluloid'
-  - 'firefox'
   - 'archlinux-wallpaper'
-  - 'file-roller'
   - 'gamescope'
+  - 'file-roller'
   - 'gnome-disk-utility'
   - 'gnome-logs'
   - 'gnome-system-monitor'
@@ -83,9 +95,10 @@ packages:
   - 'chezmoi'
   - 'gnome-keyring'
   - 'seahorse'
+  - 'cosmic-terminal'
+  - 'cosmic-files'
 
   - 'webkit2gtk' # Needed for School VPN (Cisco anyconnect)!
-
   desktop_environments:
     gnome:
     - 'gnome-control-center'
@@ -98,33 +111,27 @@ packages:
     - 'gnome-backgrounds'
     - 'gdm'
     - 'dconf-editor'
-    - 'networkmanager'
-    cosmic:
-      - 'cosmic-files'
+    COSMIC:
       - 'cosmic-session'
-      - 'cosmic-terminal'
       - 'upower'
   machines:
     arch-desktop:
-    - 'libvirt'
-    - 'qemu-desktop'
-    - 'virt-manager'
     - 'calibre'
 
 
 
-  aur_packages:
-    base:
-    - 'brave-bin'
-    - 'ludusavi'
-    - 'vscodium-bin'
-    - 'vscodium-bin-marketplace'
-    - 'xone-dlundqvist-dkms-git'
-    - 'pcsx2-git'
-    desktop_environments:
-      gnome:
-      - 'gnome-shell-extension-pop-shell-git'
-      - 'extension-manager'
-      - 'gdm-settings'
-      cosmic:
-      - 'system76-power-git'
+aur_packages:
+  base:
+  - 'brave-bin'
+  - 'ludusavi'
+  - 'vscodium-bin'
+  - 'vscodium-bin-marketplace'
+  - 'xone-dlundqvist-dkms-git'
+  - 'pcsx2-avx-git'
+  desktop_environments:
+    gnome:
+    - 'gnome-shell-extension-pop-shell-git'
+    - 'extension-manager'
+    - 'gdm-settings'
+    COSMIC:
+    - 'system76-power-git'
