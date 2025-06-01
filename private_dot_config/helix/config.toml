@@ -1,0 +1,24 @@
+
+[editor]
+scrolloff = 999
+line-number = "relative"  
+bufferline = "multiple" # shows bufferline when more than one buffer   
+
+# changes the cursor shape depending on the mode you're in. 
+[editor.cursor-shape] 
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.soft-wrap]
+enable = true
+ 
+[keys.insert]
+f = { j = "normal_mode" } # Maps "fj" to exit insert mode
+j = { f = "normal_mode" } # Maps "fj" to exit insert mode
+
+# for indent guides
+[editor.indent-guides]
+render = true
+character = "|"
+skip-levels = 1
