@@ -6,11 +6,6 @@ symlink_if_exist() {
     fi
 }
 
-symlink_if_exist "/run/media/$USER/Games/"
-symlink_if_exist "/run/media/$USER/LNX-Data/"
-symlink_if_exist "/run/media/$USER/LNX-Data/dev"
-symlink_if_exist "/run/media/$USER/Gamedrive/"
-symlink_if_exist "/run/media/$USER/win-shared/"
 symlink_if_exist "/mnt/EMU-SSD/"
 symlink_if_exist "/mnt/Backup-Drive/"
 
@@ -39,18 +34,9 @@ fi
 
 # Make dev folder in home directory if on laptop
 {{ if eq .chezmoi.hostname "arch-laptop" -}}
-    if [ ! -d "$1" ]; then
+    if [ ! -d "$HOME/dev" ]; then
         mkdir -p "$HOME/dev"
     fi
 {{- end }}
-
-
-# symlink terminal to x-terminal-emulator. Required 
-# for onagre run functionality
-ONAGRE_TERM="/usr/bin/x-terminal-emulator"
-if [ -f "$TERMINAL" ] &&  [ ! -f "$ONAGRE_TERM" ]; then
-    echo "Need root priveleges to create terminal symlink $TERMINAL -> $ONAGRE_TERM"
-    sudo ln -sf "$TERMINAL" "$ONAGRE_TERM"
-fi
 
 # make sure to run script every time!: {{ uuidv4 }}
