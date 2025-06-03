@@ -17,9 +17,6 @@ enable = true
 f = { j = "normal_mode" } # Maps "fj" to exit insert mode
 j = { f = "normal_mode" } # Maps "fj" to exit insert mode
 
-[keys.normal]
-C-g = [":new", ":insert-output gitui", ":buffer-close", ":redraw"]
-
 # for indent guides
 [editor.indent-guides]
 render = true
