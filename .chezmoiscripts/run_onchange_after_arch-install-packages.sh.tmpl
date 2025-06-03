@@ -1,8 +1,6 @@
 {{ if and (eq .chezmoi.osRelease.id "arch") (eq .chezmoi.os "linux") -}}
 #!/bin/bash
 
-user=""
-
 {{ $de := env "XDG_SESSION_DESKTOP"  -}}
 
 packages=(
@@ -39,33 +37,6 @@ aur_packages=(
     {{ end -}}
 {{ end }}
 
-
-function run_as_root() {
-    if [[ $EUID -ne 0 ]]; then
-       echo "This script needs root privliges!"
-       if command -v -- "/usr/bin/doas" > /dev/null 2>&1; then
-            doas "$PWD/$0 $USER"
-       elif command -v -- "/usr/bin/sudo" > /dev/null 2>&1; then
-            sudo "$PWD/$0 $USER"
-       else
-            echo "Neither doas or sudo was found on the system!"
-       fi                  
-    fi
-}
-
-function run_as_user() {
-    if [[ $EUID -eq 0 ]]; then
-       echo "This script has to run as the user, dropping root privleges!"
-       if command -v -- "/usr/bin/doas" > /dev/null 2>&1; then
-            doas -u "$user" "$PWD/$0 skip-pacman"
-       elif command -v -- "/usr/bin/sudo" > /dev/null 2>&1; then
-            sudo -u "$user" "$PWD/$0 skip-pacman"
-       else
-            echo "Neither doas or sudo was found on the system!"
-       fi                  
-    fi
-}
-
 function exit_on_cmd_fail() {
     if [ $? -ne 0 ]; then
         echo "$1"
@@ -75,9 +46,8 @@ function exit_on_cmd_fail() {
 
 function install_pacman_pkgs() {
     if [ ${#packages[@]} -ne 0 ]; then
-        run_as_root
-        echo "Installing pacman pkgs!"
-        sudo pacman -S --needed "${packages[@]}"
+        echo "Installing pacman pkgs!"            
+        sudo pacman -S --needed ${packages[@]}
     fi
 }
 
@@ -100,8 +70,6 @@ function install_aur_pkgs() {
             cd $pwd
             rm -r paru
         fi
-
-        run_as_user
         echo "Installing aur pkgs (${#aur_packages[@]})!"
         for pkg in $aur_packages; do
             paru -S --needed $pkg
@@ -109,16 +77,8 @@ function install_aur_pkgs() {
     fi
 }
 
-
-if [[ -z "$1" ]]; then
-   install_pacman_pkgs
-elif [[ "$1" == "skip-pacman" ]]; then
-   install_aur_pkgs
-else
-   user="$1"
-   install_pacman_pkgs
-   install_aur_pkgs
-fi
+install_pacman_pkgs
+install_aur_pkgs
 
 {{ end }}
 {{/* Test template: 'cat run_onchange_arch-install-packages.sh.tmpl | chezmoi execute-template' */}}

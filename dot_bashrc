@@ -80,17 +80,7 @@ if [ -d ~/.bashrc.d ]; then
 fi
 unset rc
 
-
-
-terminal=$(ps -o sid= -p "$$" | xargs ps -o ppid= -p | xargs ps -o comm= -p)
-
-if [ "$terminal" == "kitty" ]; then
-    alias neofetch='neofetch --kitty --crop_mode fill --source  ~/Pictures/neofetch/images/ilya.jpg'
-
-elif [ "$terminal" == "alacritty" ]; then
-    alias neofetch='neofetch --w3m --loop --crop_mode fill --source  ~/Pictures/neofetch/images/ilya.jpg'
-
-fi
+alias "hx=helix"
 
 # Cosmic terminal beam cursor
 echo -n -e "\e[5 q"
