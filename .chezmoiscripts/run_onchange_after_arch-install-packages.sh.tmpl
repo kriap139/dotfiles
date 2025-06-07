@@ -71,7 +71,7 @@ function install_aur_pkgs() {
             rm -r paru
         fi
         echo "Installing aur pkgs (${#aur_packages[@]})!"
-        for pkg in $aur_packages; do
+        for pkg in "${aur_packages[@]}"; do
             paru -S --needed $pkg
         done
     fi
