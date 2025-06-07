@@ -37,15 +37,31 @@ packages:
   - 'ppsspp'
 
   # Helix editor
-  - helix
-  - vscode-json-languageserver
-  - yaml-language-server
-  - lldb
-  - clang
-  - bash-language-server
-  - texlab
-  - ruff
-  - taplo-cli
+  - 'rust-analyzer'
+  - 'python-lsp-server'
+  - 'ruff'
+  - 'vscode-json-languageserver'
+  - 'vscode-css-languageserver'
+  - 'vscode-html-languageserver'
+  - 'bash-language-server'
+  - 'yaml-language-server'
+  - 'lldb'
+  - 'clang'
+  - 'texlab'
+  - 'taplo-cli'
+
+  - 'gitui'
+  - 'bottom'
+  
+  # yazi
+  - 'yazi'
+  - '7zip'
+  - 'chafa'
+  - 'fd'
+  - 'fzf'
+  - 'imagemagick'
+  - 'jq'
+  - 'poppler'
   
   # btrfs stuff
   - 'btrfs-progs'
@@ -81,8 +97,6 @@ packages:
   - 'discord'
   - 'obsidian'
   - 'obsidian-icon-theme'
-  - 'blender'
-  - 'libnotify'
   - 'celluloid'
   - 'archlinux-wallpaper'
   - 'gamescope'
@@ -125,8 +139,7 @@ aur_packages:
   base:
   - 'brave-bin'
   - 'ludusavi'
-  - 'vscodium-bin'
-  - 'vscodium-bin-marketplace'
+  - 'helix-git'
   - 'xone-dlundqvist-dkms-git'
   - 'pcsx2-avx-git'
   desktop_environments:

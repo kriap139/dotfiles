@@ -57,30 +57,14 @@ then
     PATH="$HOME/.local/bin:$HOME/bin:$PATH"
 fi
 
-PATH="$HOME/.local/bin/backup:$PATH"
-
-if [ -d "$HOME/.config/sway/scripts" ]; then
-    PATH="$HOME/.config/sway/scripts:$PATH"
-fi
-export PATH
-
-
 alias ls='ls --color=auto'
 alias cd-arch-build='cd /home/makepkg/pkg-manual'
-#alias vscodium="vscodium --extensions-dir $XDG_DATA_HOME/VSCodium"
-#alias codium="codium --extensions-dir $XDG_DATA_HOME/VSCodium"
-
-# User specific aliases and functions
-if [ -d ~/.bashrc.d ]; then
-	for rc in ~/.bashrc.d/*; do
-		if [ -f "$rc" ]; then
-			. "$rc"
-		fi
-	done
-fi
-unset rc
-
-alias "hx=helix"
 
 # Cosmic terminal beam cursor
 echo -n -e "\e[5 q"
+
+if [[ $(ps --no-header --pid=$PPID --format=comm) != "fish" && -z ${BASH_EXECUTION_STRING} && ${SHLVL} == 1 ]]
+then
+	shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=''
+	exec fish $LOGIN_OPTION
+fi
