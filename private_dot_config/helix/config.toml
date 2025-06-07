@@ -14,21 +14,6 @@ insert = "bar"
 normal = "block"
 select = "underline"
 
-[editor.whitespace.render]
-space = "all"
-tab = "all"
-nbsp = "none"
-nnbsp = "none"
-newline = "none"
-
-[editor.whitespace.characters]
-space = "·"
-nbsp = "⍽"
-nnbsp = "␣"
-tab = "→"
-newline = "⏎"
-#tabpad = "·"    # Tabs will look like "→···" (depending on tab width)
-
 [editor.soft-wrap]
 enable = true
  
@@ -36,7 +21,7 @@ enable = true
 j = { k = "normal_mode" }
 
 [editor.indent-guides]
-render = false
+render = true
 character = "."
 skip-levels = 1
 
