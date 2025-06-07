@@ -52,17 +52,10 @@ packages:
 
   - 'gitui'
   - 'bottom'
-  
-  # yazi
-  - 'yazi'
-  - '7zip'
-  - 'chafa'
-  - 'fd'
-  - 'fzf'
-  - 'imagemagick'
-  - 'jq'
-  - 'poppler'
-  
+
+  - 'fish'
+  - 'pkgfile'
+    
   # btrfs stuff
   - 'btrfs-progs'
   - 'snapper'
@@ -133,14 +126,12 @@ packages:
     arch-desktop:
     - 'calibre'
 
-
-
 aur_packages:
   base:
   - 'brave-bin'
   - 'ludusavi'
   - 'helix-git'
-  - 'xone-dlundqvist-dkms-git'
+  - 'xone-dkms-git'
   - 'pcsx2-avx-git'
   desktop_environments:
     gnome:
