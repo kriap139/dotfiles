@@ -72,6 +72,7 @@ packages:
   - 'just'
   - 'usbutils'
   - 'pciutils'
+  - 'rust-musl'
 
   # latex (texlive)
   - 'texlive-basic'
@@ -106,7 +107,6 @@ packages:
   - 'cosmic-terminal'
   - 'cosmic-files'
 
-  - 'webkit2gtk' # Needed for School VPN (Cisco anyconnect)!
   desktop_environments:
     gnome:
     - 'gnome-control-center'
