@@ -1,0 +1,6 @@
+#!/bin/bash
+
+[ "$UID" -eq 0 ] || { echo "This script must be run as root."; exit 1;}
+
+rm -r /home/makepkg/packages/*
+rm -r /home/makepkg/sources/*
