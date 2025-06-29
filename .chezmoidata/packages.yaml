@@ -27,7 +27,7 @@ packages:
   # Fonts
   - 'noto-fonts'
   - 'noto-fonts-cjk'
-
+  
   # Virtualization
   - 'qemu-desktop'
 
@@ -50,12 +50,22 @@ packages:
   - 'texlab'
   - 'taplo-cli'
 
-  - 'gitui'
-  - 'bottom'
-
+  # Shell & Terminal
   - 'fish'
   - 'pkgfile'
-    
+  - 'foot'
+  - 'gitui'
+  - 'btop'
+  - 'chezmoi'
+
+  # File Manager
+  - 'yazi'
+  - '7zip'         # Archive Preview
+  - 'chafa'        # Image Preview
+  - 'fd'           # file searching
+  - 'imagemagick'  # previewing fonts
+  - 'ripgrep'      # file content search
+  
   # btrfs stuff
   - 'btrfs-progs'
   - 'snapper'
@@ -89,24 +99,17 @@ packages:
 
   # APPS
   - 'discord'
-  - 'obsidian'
-  - 'obsidian-icon-theme'
   - 'celluloid'
   - 'archlinux-wallpaper'
   - 'gamescope'
-  - 'file-roller'
   - 'gnome-disk-utility'
   - 'gnome-logs'
-  - 'gnome-system-monitor'
   - 'steam'
   - 'keepassxc'
   - 'speedcrunch'
-  - 'chezmoi'
   - 'gnome-keyring'
   - 'seahorse'
-  - 'cosmic-terminal'
-  - 'cosmic-files'
-
+  
   desktop_environments:
     gnome:
     - 'gnome-control-center'
@@ -122,6 +125,12 @@ packages:
     COSMIC:
       - 'cosmic-session'
       - 'upower'
+    niri:
+      - 'niri'
+      - 'upower'
+      - 'swww'
+      - 'adw-gtk-theme'
+      - 'wlsunset'
   machines:
     arch-desktop:
     - 'calibre'
@@ -139,4 +148,7 @@ aur_packages:
     - 'extension-manager'
     - 'gdm-settings'
     COSMIC:
+    - 'system76-power-git'
+    niri:
+    #- 'ttf-material-symbols-variable-git'
     - 'system76-power-git'
