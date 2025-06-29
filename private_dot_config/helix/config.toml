@@ -5,6 +5,9 @@ bufferline = "multiple" # shows bufferline when more than one buffer
 mouse = false
 end-of-line-diagnostics	= "hint"
 
+[editor.auto-save]
+focus-lost=true
+
 [editor.lsp]
 display-inlay-hints = true
 

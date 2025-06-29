@@ -1,6 +1,5 @@
 #!/bin/fish
 
-# source /etc/profile with bash
 if status is-login
     #if not set -q __sourced_profile
     #    set -x __sourced_profile 1
@@ -42,9 +41,10 @@ end
 
 if status is-interactive
     alias cd-arch-build='cd /home/makepkg/pkg-manual'
+    alias ls="ls --group-directories-first -vr"
 
     # Cosmic terminal beam cursor
-    echo -n -e "\e[5 q"
+    #echo -n -e "\e[5 q"
 
     bind \cz 'fg 2>/dev/null; commandline -f repaint'
 end
