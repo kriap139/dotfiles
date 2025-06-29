@@ -1,5 +1,8 @@
-{{- include "setup_gen.toml" -}}
+{{ $kdb := promptString "Kepass database" -}}
 
+[keepassxc]
+   database = {{ $kdb | quote }}
+   
 [data.git]
    name = "{{ keepassxcAttribute "Github" "username" }}"
    email = "{{ keepassxcAttribute "Github" "email" }}"
@@ -7,4 +10,3 @@
 [data.cloud]
    dir = "{{- .chezmoi.homeDir -}}/Cloud"
    prefix = "mega-personal"
-   borg_backup_repo = "/mnt/Backup-Drive/BorgBackup/Cloud"
