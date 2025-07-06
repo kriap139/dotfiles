@@ -129,8 +129,10 @@ packages:
       - 'niri'
       - 'upower'
       - 'swww'
+      - 'cosmic-launcher'
       - 'adw-gtk-theme'
       - 'wlsunset'
+      - 'swaylock'
   machines:
     arch-desktop:
     - 'calibre'
@@ -142,6 +144,7 @@ aur_packages:
   - 'helix-git'
   - 'xone-dkms-git'
   - 'pcsx2-avx-git'
+  - 'jotta-cli'
   desktop_environments:
     gnome:
     - 'gnome-shell-extension-pop-shell-git'

@@ -70,9 +70,14 @@ function install_aur_pkgs() {
             cd $pwd
             rm -r paru
         fi
-        echo "Installing aur pkgs (${#aur_packages[@]})!"
+
+        installed=( $(pacman -Qeq) )
+        
         for pkg in "${aur_packages[@]}"; do
-            paru -S --needed $pkg
+            if [[ ! "${installed[@]}" =~ "$pkg" ]]; then
+                echo "Installing $pkg from aur"
+                paru -S $pkg
+            fi 
         done
     fi
 }
