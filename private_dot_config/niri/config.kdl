@@ -264,6 +264,7 @@ layout {
 spawn-at-startup "wlsunset" "-S" "09:00" "-s" "19:00"  "-t" "2930"
 spawn-at-startup "swww-daemon"
 spawn-at-startup "xwayland-satellite"
+spawn-at-startup "jottad"
 //spawn-at-startup "waybar"
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
@@ -282,7 +283,7 @@ screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 // screenshot-path null
 
 environment {
-    DISPLAY ":0"
+    DISPLAY ":1"
 }
 
 // Animation settings.
@@ -355,8 +356,9 @@ binds {
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+T hotkey-overlay-title="Open a Terminal: foot" { spawn "foot"; }
-    Mod+G hotkey-overlay-title="Search" { spawn "cosmic-launcher"; }
-    Mod+B hotkey-overlay-title="Open Brave-Browser" { spawn "brave"; } 
+    Mod+S hotkey-overlay-title="Search" { spawn "cosmic-launcher"; }
+    Mod+B hotkey-overlay-title="Open Brave-Browser" { spawn "brave"; }
+    Mod+D hotkey-overlay-title="Open Yazi File Manager" { spawn "foot" "-e" "yazi"; } 
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
     
     
