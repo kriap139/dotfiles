@@ -10,7 +10,7 @@ if status is-login
     #end
     #set -e __sourced_profile
 
-    fish_add_path $HOME/.local/bin
+    #fish_add_path $HOME/.local/bin
 
     set -x EDITOR /usr/bin/hx
     set -x XDG_DATA_HOME $HOME/.local/share

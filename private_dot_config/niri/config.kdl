@@ -264,7 +264,7 @@ layout {
 spawn-at-startup "wlsunset" "-S" "09:00" "-s" "19:00"  "-t" "2930"
 spawn-at-startup "swww-daemon"
 spawn-at-startup "xwayland-satellite"
-spawn-at-startup "jottad"
+spawn-at-startup "jottad" "datadir" "$HOME/.local/share/jottad"
 //spawn-at-startup "waybar"
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
